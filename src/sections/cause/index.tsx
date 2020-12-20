@@ -1,4 +1,4 @@
-import site from '../../site.json';
+import site from '../../data/site.json';
 import '../../styles/index.scss';
 import styles from './index.module.scss';
 
