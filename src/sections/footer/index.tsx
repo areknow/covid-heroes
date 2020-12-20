@@ -12,7 +12,12 @@ export const Footer = () => {
             <ul>
               {site.content.footer.learn.links.map((link, index) => (
                 <li>
-                  <a key={index} href={link.link} target="_blank">
+                  <a
+                    key={index}
+                    href={link.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {link.label}
                   </a>
                 </li>
@@ -24,7 +29,12 @@ export const Footer = () => {
             <ul>
               {site.content.footer.about.links.map((link, index) => (
                 <li>
-                  <a key={index} href={link.link} target="_blank">
+                  <a
+                    key={index}
+                    href={link.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {link.label}
                   </a>
                 </li>
