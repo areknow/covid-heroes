@@ -1,0 +1,28 @@
+.contact {
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      display: flex;
+      align-items: center;
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 2;
+      a {
+        margin-left: 6px;
+        color: var(--theme-blue);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media (max-width: var(--size-small)) {
+  .contact {
+    ul {
+      li {
+        font-size: 16px;
+      }
+    }
+  }
+}
