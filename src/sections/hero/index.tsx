@@ -2,6 +2,7 @@ import "../../styles/index.scss";
 import styles from "./index.module.scss";
 import site from "../../site.json";
 import Nav from "../../components/nav";
+import Button from "../../components/button";
 
 export const Hero = () => {
   return (
@@ -14,14 +15,9 @@ export const Hero = () => {
             <p>{site.content.hero.paragraph}</p>
             <div className={styles.actions}>
               {site.content.hero.actions.map((action, index) => (
-                <button
-                  key={index}
-                  id="action"
-                  data-key={action.key}
-                  className={"button " + action.type + " negative"}
-                >
-                  {action.label}
-                </button>
+                <Button key={index} negative>
+                  {action}
+                </Button>
               ))}
             </div>
           </div>
