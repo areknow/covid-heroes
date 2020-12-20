@@ -1,3 +1,5 @@
+@import '../../styles/sizes';
+
 .contact {
   ul {
     margin: 0;
@@ -17,7 +19,7 @@
   }
 }
 
-@media (max-width: var(--size-small)) {
+@media (max-width: $size-small) {
   .contact {
     ul {
       li {

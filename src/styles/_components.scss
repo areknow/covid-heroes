@@ -4,7 +4,7 @@
     position: relative;
     margin-bottom: 65px;
     &:after {
-      content: "";
+      content: '';
       height: 6px;
       width: 100px;
       background: var(--theme-blue);
@@ -56,7 +56,7 @@
   border-color: var(--theme-blue);
 }
 .radio:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -117,7 +117,7 @@
 }
 .checkbox:before,
 .checkbox:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -147,7 +147,7 @@
   transform: translate(3px, 4px) rotate(-45deg);
 }
 
-@media (max-width: var(--size-small)) {
+@media ($size-small) {
   .button {
     width: 100%;
     font-size: 18px;

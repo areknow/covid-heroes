@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,700&display=swap");
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -14,7 +14,7 @@ body {
   background-color: #ffffff;
   color: #000;
   font-size: 14px;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: normal;
   font-style: normal;
   padding: 0;
@@ -59,13 +59,13 @@ p {
   margin: 0;
 }
 
-@media (max-width: var(--size-medium)) {
+@media (max-width: $size-medium) {
   h1 {
     font-size: 90px;
   }
 }
 
-@media (max-width: var(--size-small)) {
+@media ($size-small) {
   .page-column {
     max-width: unset;
     padding: 0 20px;

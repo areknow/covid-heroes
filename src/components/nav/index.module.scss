@@ -1,3 +1,5 @@
+@import '../../styles/sizes';
+
 nav {
   ul.menu {
     list-style: none;
@@ -13,7 +15,7 @@ nav {
   }
 }
 
-@media (max-width: var(--size-small)) {
+@media (max-width: $size-small) {
   nav {
     ul.menu {
       text-align: center;

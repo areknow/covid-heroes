@@ -1,3 +1,5 @@
+@import '../../styles/sizes';
+
 .footer {
   background: var(--theme-blue);
   color: #fff;
@@ -33,7 +35,7 @@
   }
 }
 
-@media (max-width: var(--size-medium)) {
+@media (max-width: $size-medium) {
   .footer {
     .pageColumn {
       display: block;
@@ -48,7 +50,7 @@
   }
 }
 
-@media (max-width: var(--size-small)) {
+@media (max-width: $size-small) {
   .footer {
     padding: 80px 0;
     .pageColumn {
