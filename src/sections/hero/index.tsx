@@ -1,8 +1,8 @@
-import "../../styles/index.scss";
-import styles from "./index.module.scss";
-import site from "../../site.json";
-import Nav from "../../components/nav";
-import Button from "../../components/button";
+import '../../styles/index.scss';
+import styles from './index.module.scss';
+import site from '../../site.json';
+import Nav from '../../components/nav';
+import Button from '../../components/button';
 
 export const Hero = () => {
   return (

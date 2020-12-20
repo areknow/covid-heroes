@@ -1,6 +1,6 @@
-import styles from "./index.module.scss";
-import "../../styles/index.scss";
-import site from "../../site.json";
+import styles from './index.module.scss';
+import '../../styles/index.scss';
+import site from '../../site.json';
 
 export const Nav = () => {
   return (

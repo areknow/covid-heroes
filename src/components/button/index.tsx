@@ -1,4 +1,4 @@
-import styles from "./index.module.scss";
+import styles from './index.module.scss';
 
 interface ButtonProps {
   negative?: boolean;
@@ -13,8 +13,8 @@ export const Button = (props: ButtonProps) => {
   let classes = [
     styles.button,
     styles[props.children.type],
-    props.negative ? styles.negative : null,
-  ].join(" ");
+    props.negative ? styles.negative : null
+  ].join(' ');
 
   return <button className={classes}>{props.children.label}</button>;
 };
