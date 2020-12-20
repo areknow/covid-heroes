@@ -1,4 +1,4 @@
-import styles from "./Nav.module.scss";
+import styles from "./index.module.scss";
 import "../../styles/index.scss";
 import site from "../../site.json";
 

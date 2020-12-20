@@ -1,0 +1,16 @@
+.cause {
+  p {
+    margin-bottom: 30px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: var(--size-small)) {
+  .cause {
+    p {
+      margin-bottom: 24px;
+    }
+  }
+}
