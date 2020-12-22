@@ -6,11 +6,7 @@ import Radio from '../../components/radio';
 import Checkbox from '../../components/checkbox';
 import Select from '../../components/select';
 import PageColumn from '../../components/page-column';
-
-const selectOptions = [
-  { value: 'AL', label: 'Alabama' },
-  { value: 'AK', label: 'Alaska' }
-];
+import { STATES } from './states';
 
 const Donate = () => {
   const [donate, toggleDonate] = useState(false);
@@ -25,6 +21,7 @@ const Donate = () => {
     email: '',
     street: '',
     city: '',
+    state: '',
     zip: ''
   });
 
@@ -177,10 +174,13 @@ const Donate = () => {
                   </div>
                   <span className={styles.input}>
                     <Select
-                      options={selectOptions}
+                      options={STATES}
                       autoComplete="address-level1"
                       name="state"
                       label="State"
+                      change={event => {
+                        setForm({ ...form, state: event.target.value });
+                      }}
                     />
                   </span>
                   <div className={styles.input}>

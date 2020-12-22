@@ -9,11 +9,7 @@ interface CheckboxProps {
 const Checkbox = (props: CheckboxProps) => {
   return (
     <label className={styles.checkboxContainer}>
-      <input
-        type="checkbox"
-        value={props.value}
-        onChange={() => props.change()}
-      />
+      <input type="checkbox" value={props.value} onChange={props.change} />
       <span className={styles.checkbox}></span>
       <div className={styles.label}>{props.label}</div>
     </label>

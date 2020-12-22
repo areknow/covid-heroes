@@ -10,6 +10,7 @@ interface SelectProps {
   autoComplete: string;
   name: string;
   label: string;
+  change: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const Select = (props: SelectProps) => {
@@ -20,6 +21,9 @@ const Select = (props: SelectProps) => {
         defaultValue={'N/A'}
         autoComplete={props.autoComplete}
         name={props.name}
+        onChange={event => {
+          props.change(event);
+        }}
       >
         <option value="N/A" disabled>
           {props.label}
