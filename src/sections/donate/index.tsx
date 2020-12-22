@@ -15,7 +15,7 @@ const Donate = () => {
   const [volunteer, toggleVolunteer] = useState(false);
   const [itemList] = useState(site.content.sections.need.list);
   const [form, setForm] = useState({
-    org: '',
+    org: 'N/A',
     first: '',
     last: '',
     phone: '',
