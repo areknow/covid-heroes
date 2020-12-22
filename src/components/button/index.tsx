@@ -5,11 +5,10 @@ interface ButtonProps {
   children: {
     label: string;
     type: string;
-    key: string;
   };
 }
 
-export const Button = (props: ButtonProps) => {
+const Button = (props: ButtonProps) => {
   let classes = [
     styles.button,
     styles[props.children.type],

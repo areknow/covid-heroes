@@ -1,6 +1,6 @@
 import styles from './index.module.scss';
 
-export const Loader = () => {
+const Loader = () => {
   return (
     <div className={styles.pageLoaderCover}>
       <div className={styles.cubeGrid + 'abs-center'}>
@@ -17,3 +17,5 @@ export const Loader = () => {
     </div>
   );
 };
+
+export default Loader;

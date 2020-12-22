@@ -2,7 +2,7 @@ import styles from './index.module.scss';
 import '../../styles/index.scss';
 import site from '../../data/site.json';
 
-export const Nav = () => {
+const Nav = () => {
   return (
     <nav>
       <div className="page-column">

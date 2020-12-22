@@ -1,15 +1,18 @@
 import site from '../../data/site.json';
 import '../../styles/index.scss';
 import styles from './index.module.scss';
+import PageColumn from '../../components/page-column';
 
-export const Cause = () => {
+const Cause = () => {
   return (
-    <div id="cause" className={'section ' + styles.cause + ' page-column'}>
-      <h2 className="header">{site.content.sections.cause.header}</h2>
-      {site.content.sections.cause.paragraphs.map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
-      ))}
-    </div>
+    <PageColumn>
+      <div className={'section ' + styles.cause}>
+        <h2 className="header">{site.content.sections.cause.header}</h2>
+        {site.content.sections.cause.paragraphs.map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
+        ))}
+      </div>
+    </PageColumn>
   );
 };
 

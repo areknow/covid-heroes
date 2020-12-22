@@ -29,15 +29,24 @@
       "need": {
         "header": "What we need right now.",
         "list": [
-          "Disposable face masks",
-          "N95 respirators",
-          "Eye protection including face shields and safety goggles",
-          "Disposable gowns",
-          "Disposable gloves (especially non latex)",
-          "Disposable surgical caps",
-          "Disposable foot covers",
-          "Bleach wipes and/or antimicrobial wipes",
-          "Hand sanitizer"
+          { "label": "Disposable face masks", "checked": false },
+          { "label": "N95 respirators", "checked": false },
+          {
+            "label": "Eye protection including face shields and safety goggles",
+            "checked": false
+          },
+          { "label": "Disposable gowns", "checked": false },
+          {
+            "label": "Disposable gloves (especially non latex)",
+            "checked": false
+          },
+          { "label": "Disposable surgical caps", "checked": false },
+          { "label": "Disposable foot covers", "checked": false },
+          {
+            "label": "Bleach wipes and/or antimicrobial wipes",
+            "checked": false
+          },
+          { "label": "Hand sanitizer", "checked": false }
         ]
       },
       "donate": {

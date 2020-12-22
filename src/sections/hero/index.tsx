@@ -3,11 +3,12 @@ import styles from './index.module.scss';
 import site from '../../data/site.json';
 import Nav from '../../components/nav';
 import Button from '../../components/button';
+import PageColumn from '../../components/page-column';
 
-export const Hero = () => {
+const Hero = () => {
   return (
     <div id="hero" className={styles.hero}>
-      <div className="page-column">
+      <PageColumn>
         <Nav />
         <div className={styles.contentContainer}>
           <div>
@@ -22,7 +23,7 @@ export const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
+      </PageColumn>
     </div>
   );
 };
