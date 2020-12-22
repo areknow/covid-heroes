@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEventHandler, useState } from 'react';
 import styles from './index.module.scss';
 import site from '../../data/site.json';
 import Button from '../../components/button';
@@ -7,26 +7,61 @@ import Checkbox from '../../components/checkbox';
 import Select from '../../components/select';
 import PageColumn from '../../components/page-column';
 import { STATES } from './states';
+import { postFormData } from './service';
 
 const Donate = () => {
   const [donate, toggleDonate] = useState(false);
   const [request, toggleRequest] = useState(false);
   const [volunteer, toggleVolunteer] = useState(false);
-  const [itemList, setItemList] = useState(site.content.sections.need.list);
+  const [itemList] = useState(site.content.sections.need.list);
   const [form, setForm] = useState({
-    orgName: '',
-    firstName: '',
-    lastName: '',
+    org: '',
+    first: '',
+    last: '',
     phone: '',
     email: '',
     street: '',
     city: '',
     state: '',
-    zip: ''
+    zip: '',
+    other: ''
   });
 
-  const handleSubmit = (event: any) => {
-    console.log(1);
+  /**
+   * Clean and format the list data for submission
+   */
+  const prepareListData = () => {
+    if (itemList.length) {
+      return itemList
+        .filter(item => item.checked)
+        .map(item => item.label)
+        .join(', ');
+    } else {
+      return 'N/A';
+    }
+  };
+
+  /**
+   * Prepare the form data to be sent to server
+   * @param event
+   */
+  const handleSubmit = (event: React.FormEvent<Element>) => {
+    let type = '';
+    if (donate && !request) {
+      type = 'donation';
+    } else if (!donate && request) {
+      type = 'request';
+    } else if (!donate && !request && volunteer) {
+      type = 'volunteer';
+    }
+    const list = prepareListData();
+    const data = {
+      type,
+      ...form,
+      list,
+      volunteer: volunteer ? 'Yes' : 'No'
+    };
+    postFormData(data);
     event.preventDefault();
   };
 
@@ -76,7 +111,7 @@ const Donate = () => {
                     label="I am interested in being a volunteer. (if you don't have any PPEs or need any PPEs but still want to contribute in the logistics please check the box)"
                     value="volunteer"
                     change={() => {
-                      toggleVolunteer(true);
+                      toggleVolunteer(!volunteer);
                     }}
                   />
                 </li>
@@ -87,8 +122,6 @@ const Donate = () => {
                 <h3>
                   Please fill out some basic information so we can get in touch.
                 </h3>
-                {JSON.stringify(form)}
-
                 {request && (
                   <div className={styles.row}>
                     <span className={styles.input}>
@@ -96,7 +129,7 @@ const Donate = () => {
                         placeholder="Organization Name"
                         type="text"
                         onChange={event => {
-                          setForm({ ...form, orgName: event.target.value });
+                          setForm({ ...form, org: event.target.value });
                         }}
                       />
                     </span>
@@ -110,7 +143,7 @@ const Donate = () => {
                       placeholder="First Name"
                       autoComplete="given-name"
                       onChange={event => {
-                        setForm({ ...form, firstName: event.target.value });
+                        setForm({ ...form, first: event.target.value });
                       }}
                     />
                   </div>
@@ -121,7 +154,7 @@ const Donate = () => {
                       placeholder="Last Name"
                       autoComplete="family-name"
                       onChange={event => {
-                        setForm({ ...form, lastName: event.target.value });
+                        setForm({ ...form, last: event.target.value });
                       }}
                     />
                   </div>
@@ -200,8 +233,8 @@ const Donate = () => {
               <div className={styles.block}>
                 <h3>
                   Please check the boxes indicating what items you are
-                  {request && ' requesting'}
-                  {donate && ' donating'}.
+                  {request && ' requesting.'}
+                  {donate && ' donating.'}
                 </h3>
                 <ul className={styles.list}>
                   {itemList.map((item, index) => (
@@ -221,13 +254,15 @@ const Donate = () => {
                     <textarea
                       rows={8}
                       placeholder="Please let us know if you have other items you would like to donate."
-                      name="other"
+                      onChange={event => {
+                        setForm({ ...form, other: event.target.value });
+                      }}
                     ></textarea>
                   </span>
                 </div>
               </div>
             )}
-            {(donate || request) && (
+            {(donate || request || volunteer) && (
               <Button>{{ label: 'SUBMIT', type: 'primary' }}</Button>
             )}
           </form>
