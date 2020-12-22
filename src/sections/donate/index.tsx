@@ -1,4 +1,4 @@
-import { FormEventHandler, useState } from 'react';
+import { useState } from 'react';
 import styles from './index.module.scss';
 import site from '../../data/site.json';
 import Button from '../../components/button';
