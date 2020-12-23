@@ -4,6 +4,7 @@ import site from '../../data/site.json';
 import Nav from '../../components/nav';
 import Button from '../../components/button';
 import Column from '../../components/column';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const Hero = () => {
   return (
@@ -16,9 +17,11 @@ const Hero = () => {
             <p>{site.content.hero.paragraph}</p>
             <div className={styles.actions}>
               {site.content.hero.actions.map((action, index) => (
-                <Button key={index} negative>
-                  {action}
-                </Button>
+                <AnchorLink href="#donate">
+                  <Button key={index} negative>
+                    {action}
+                  </Button>
+                </AnchorLink>
               ))}
             </div>
           </div>
