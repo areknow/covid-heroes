@@ -5,7 +5,7 @@
     max-width: 1000px;
   }
   .formContainer {
-    background: #f5f5f5;
+    background: var(--donate-form-background-color);
     margin-top: 50px;
     form {
       max-width: 860px;
@@ -45,15 +45,18 @@
               font-size: 16px;
               line-height: 1.5;
               letter-spacing: 0.15px;
-              color: rgba(0, 0, 0, 0.6);
+              color: var(--donate-form-input-text-color);
               padding: 16px;
               border-radius: 4px;
-              border: 1px solid rgba(0, 0, 0, 0.3);
-              background-color: #fff;
+              border: 1px solid var(--donate-form-input-border-color);
+              background-color: var(--body-background-color);
               -webkit-appearance: none;
               -moz-appearance: none;
               appearance: none;
               position: relative;
+              &::placeholder {
+                color: var(--donate-form-input-placeholder-color);
+              }
             }
             textarea {
               margin-top: 40px;

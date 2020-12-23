@@ -19,7 +19,7 @@
   line-height: 1.36;
   letter-spacing: 0.21px;
   font-size: 22px;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--donate-form-controls-text-color-unselected);
   max-width: 640px;
 }
 .checkbox {
@@ -33,7 +33,7 @@
   border-radius: 2px;
 }
 .checkboxContainer input:checked ~ .label {
-  color: #000000;
+  color: var(--donate-form-controls-text-color-selected);
 }
 .checkboxContainer input:checked ~ .checkbox {
   border-color: var(--theme-blue);

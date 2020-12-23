@@ -6,4 +6,30 @@
 
   --size-small: 600px;
   --size-medium: 900px;
+
+  --body-background-color: #fff;
+  --body-text-color: #000;
+
+  --donate-form-background-color: #f5f5f5;
+  --donate-form-text-color: #f5f5f5;
+  --donate-form-controls-text-color-unselected: #666;
+  --donate-form-controls-text-color-selected: #000;
+  --donate-form-input-border-color: #acadaf;
+  --donate-form-input-text-color: #666;
+  --donate-form-input-placeholder-color: rgb(160, 160, 160);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-background-color: rgb(68, 68, 68);
+    --body-text-color: #fff;
+
+    --donate-form-background-color: #303030;
+    --donate-form-controls-text-color: #adadad;
+    --donate-form-controls-text-color-unselected: rgb(161, 161, 161);
+    --donate-form-controls-text-color-selected: rgb(255, 255, 255);
+    --donate-form-input-border-color: #dbdbdb;
+    --donate-form-input-text-color: #fff;
+    --donate-form-input-placeholder-color: #fff;
+  }
 }
