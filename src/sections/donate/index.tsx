@@ -76,7 +76,7 @@ const Donate = () => {
         </Column>
         <div className={styles.formContainer}>
           <Column>
-            <form id="form" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
               <div className={styles.block}>
                 <h3>
                   Are you donating medical equipment, or are you requesting it?
