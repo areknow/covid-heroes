@@ -3,12 +3,12 @@ import styles from './index.module.scss';
 import site from '../../data/site.json';
 import Nav from '../../components/nav';
 import Button from '../../components/button';
-import PageColumn from '../../components/page-column';
+import Column from '../../components/column';
 
 const Hero = () => {
   return (
     <div id="hero" className={styles.hero}>
-      <PageColumn>
+      <Column>
         <Nav />
         <div className={styles.contentContainer}>
           <div>
@@ -23,7 +23,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </PageColumn>
+      </Column>
     </div>
   );
 };

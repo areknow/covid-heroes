@@ -1,0 +1,24 @@
+@import '../../styles/sizes';
+
+.header {
+  position: relative;
+  margin-bottom: 65px;
+  &:after {
+    content: '';
+    height: 6px;
+    width: 100px;
+    background: var(--theme-blue);
+    left: 0;
+    bottom: -10px;
+    position: absolute;
+  }
+}
+
+@media (max-width: $size-small) {
+  .header {
+    margin-bottom: 12px;
+    &:after {
+      display: none;
+    }
+  }
+}

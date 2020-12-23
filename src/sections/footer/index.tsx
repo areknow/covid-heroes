@@ -1,11 +1,11 @@
 import styles from './index.module.scss';
 import site from '../../data/site.json';
-import PageColumn from '../../components/page-column';
+import Column from '../../components/column';
 
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <PageColumn>
+      <Column>
         <div className={styles.content}>
           <h4>{site.title}</h4>
           <div className={styles.linkGroups}>
@@ -35,7 +35,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </PageColumn>
+      </Column>
     </div>
   );
 };

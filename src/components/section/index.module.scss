@@ -1,0 +1,11 @@
+@import '../../styles/sizes';
+
+.section {
+  margin-bottom: 200px;
+}
+
+@media (max-width: $size-small) {
+  .section {
+    margin-bottom: 60px;
+  }
+}
