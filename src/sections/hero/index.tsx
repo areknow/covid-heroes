@@ -8,6 +8,8 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { useContext } from 'react';
 import { Context } from '../../context';
 
+const SCROLL_OFFSET = 50;
+
 const Hero = () => {
   const { updateContext } = useContext(Context);
 
@@ -26,7 +28,7 @@ const Hero = () => {
             <div className={styles.actions}>
               {site.content.hero.actions.map((action, index) => (
                 <div key={index} className={styles.button}>
-                  <AnchorLink href="#donate" offset="50">
+                  <AnchorLink href="#donate" offset={SCROLL_OFFSET}>
                     <Button negative change={() => buttonClick(action.key)}>
                       {action}
                     </Button>

@@ -1,9 +1,9 @@
 import { createContext, useState } from 'react';
-import { DEFAULT_STATE } from '../config/';
+import { DEFAULT_STATE } from '../configuration';
 
 export interface ContextModel {
   formType: string;
-  foo: boolean;
+  theme: string;
 }
 
 type ContextType = {

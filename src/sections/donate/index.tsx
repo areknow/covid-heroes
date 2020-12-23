@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from './index.module.scss';
 import site from '../../data/site.json';
 import Button from '../../components/button';
@@ -10,10 +10,14 @@ import { STATES } from './states';
 import { postFormData } from './service';
 import Header from '../../components/header';
 import Section from '../../components/section';
+import { Context } from '../../context';
 
 const Donate = () => {
-  const [donate, toggleDonate] = useState(false);
-  const [request, toggleRequest] = useState(false);
+  const { context, updateContext } = useContext(Context);
+
+  const donate = context.formType === 'donate';
+  const request = context.formType === 'request';
+
   const [volunteer, toggleVolunteer] = useState(false);
   const [itemList] = useState(site.content.sections.need.list);
   const [form, setForm] = useState({
@@ -86,9 +90,9 @@ const Donate = () => {
                     <Radio
                       label="I have equipment to donate"
                       group="type"
+                      selected={donate}
                       change={() => {
-                        toggleRequest(false);
-                        toggleDonate(true);
+                        updateContext({ formType: 'donate' });
                       }}
                     />
                   </li>
@@ -96,9 +100,9 @@ const Donate = () => {
                     <Radio
                       label="I am requesting medical equipment"
                       group="type"
+                      selected={request}
                       change={() => {
-                        toggleRequest(true);
-                        toggleDonate(false);
+                        updateContext({ formType: 'request' });
                       }}
                     />
                   </li>
