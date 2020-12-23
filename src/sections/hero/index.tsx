@@ -5,8 +5,16 @@ import Nav from '../../components/nav';
 import Button from '../../components/button';
 import Column from '../../components/column';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { useContext } from 'react';
+import { Context } from '../../context';
 
 const Hero = () => {
+  const { updateContext } = useContext(Context);
+
+  const buttonClick = (key: string) => {
+    updateContext({ formType: key });
+  };
+
   return (
     <div className={styles.hero}>
       <Column>
@@ -19,7 +27,9 @@ const Hero = () => {
               {site.content.hero.actions.map((action, index) => (
                 <div key={index} className={styles.button}>
                   <AnchorLink href="#donate" offset="50">
-                    <Button negative>{action}</Button>
+                    <Button negative change={() => buttonClick(action.key)}>
+                      {action}
+                    </Button>
                   </AnchorLink>
                 </div>
               ))}

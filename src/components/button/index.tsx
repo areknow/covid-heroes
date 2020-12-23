@@ -6,6 +6,7 @@ interface ButtonProps {
     label: string;
     type: string;
   };
+  change?: () => void;
 }
 
 const Button = (props: ButtonProps) => {
@@ -15,7 +16,11 @@ const Button = (props: ButtonProps) => {
     props.negative ? styles.negative : null
   ].join(' ');
 
-  return <button className={classes}>{props.children.label}</button>;
+  return (
+    <button className={classes} onClick={props.change}>
+      {props.children.label}
+    </button>
+  );
 };
 
 export default Button;
