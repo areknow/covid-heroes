@@ -1,7 +1,6 @@
 const SparkPost = require('sparkpost');
 const SPARKPOST_CLIENT = new SparkPost(process.env.SPARKPOST);
-const RECEIVER = 'arnaudcrowther@gmail.com';
-// const RECEIVER = "donate@covidheroes.gives";
+const RECEIVER = process.env.FORM_RECEIVER;
 const SENDER = 'COVIDHEROES.<form@mail.covidheroes.gives>';
 const SUBJECT = 'New donation form submitted';
 
