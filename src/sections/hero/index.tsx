@@ -8,20 +8,20 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const Hero = () => {
   return (
-    <div id="hero" className={styles.hero}>
+    <div className={styles.hero}>
       <Column>
         <Nav />
-        <div className={styles.contentContainer}>
+        <div className={styles.content}>
           <div>
             <h1>{site.content.hero.header}</h1>
             <p>{site.content.hero.paragraph}</p>
             <div className={styles.actions}>
               {site.content.hero.actions.map((action, index) => (
-                <AnchorLink href="#donate">
-                  <Button key={index} negative>
-                    {action}
-                  </Button>
-                </AnchorLink>
+                <div key={index} className={styles.button}>
+                  <AnchorLink href="#donate" offset="50">
+                    <Button negative>{action}</Button>
+                  </AnchorLink>
+                </div>
               ))}
             </div>
           </div>
