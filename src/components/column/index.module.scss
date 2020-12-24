@@ -1,5 +1,14 @@
+@import '../../styles/sizes';
+
 .column {
   max-width: 1520px;
   padding: 0 40px;
   margin: auto;
+}
+
+@media (max-width: $size-small) {
+  .column {
+    max-width: unset;
+    padding: 0 20px;
+  }
 }

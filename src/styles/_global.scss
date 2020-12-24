@@ -60,11 +60,7 @@ p {
   }
 }
 
-@media ($size-small) {
-  .page-column {
-    max-width: unset;
-    padding: 0 20px;
-  }
+@media (max-width: $size-small) {
   h1 {
     font-size: 44px;
     line-height: 1.1;

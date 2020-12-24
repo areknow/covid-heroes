@@ -1,3 +1,5 @@
+@import '../../styles/sizes';
+
 .checkboxContainer {
   display: inline-flex;
   position: relative;
@@ -68,4 +70,16 @@
   border-right: none;
   border-top: none;
   transform: translate(3px, 4px) rotate(-45deg);
+}
+
+@media (max-width: $size-small) {
+  .checkboxContainer {
+    padding-left: 41px;
+  }
+  .checkboxContainer .label {
+    font-size: 16px;
+  }
+  .checkbox {
+    top: 1px;
+  }
 }

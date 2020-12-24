@@ -1,3 +1,5 @@
+@import '../../styles/sizes';
+
 .radioContainer {
   display: inline-flex;
   position: relative;
@@ -56,4 +58,16 @@
   height: 14px;
   border-radius: 50%;
   background: var(--theme-blue);
+}
+
+@media (max-width: $size-small) {
+  .radioContainer {
+    padding-left: 47px;
+  }
+  .radioContainer .label {
+    font-size: 16px;
+  }
+  .radio {
+    top: -2px;
+  }
 }
