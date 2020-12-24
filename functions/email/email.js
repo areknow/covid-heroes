@@ -4,43 +4,43 @@ const RECEIVER = process.env.FORM_RECEIVER;
 const SENDER = 'COVIDHEROES.<form@mail.covidheroes.gives>';
 
 exports.handler = async function (event, context, callback) {
-  const data = JSON.parse(event.body);
+  const formData = JSON.parse(event.body);
   const email = `
     <html><body>
-      <h2>New ${data.type} form submitted</h2>
+      <h2>New ${formData.type} form submitted</h2>
       <table style="width:100%">
-      <tr style="display: ${data.org == 'N/A' ? 'none' : 'table-row'}">
-        <td>Organization</td><td>${data.org}</td>
+      <tr style="display: ${formData.org == 'N/A' ? 'none' : 'table-row'}">
+        <td>Organization</td><td>${formData.org}</td>
       </tr>
       <tr>
-        <td>First name</td><td>${data.first}</td>
+        <td>First name</td><td>${formData.first}</td>
       </tr>
       <tr>
-        <td>Last name</td><td>${data.last}</td>
+        <td>Last name</td><td>${formData.last}</td>
       </tr>
       <tr>
-        <td>Phone</td><td>${data.phone}</td>
+        <td>Phone</td><td>${formData.phone}</td>
       </tr>
       <tr>
-        <td>Email</td><td>${data.email}</td>
+        <td>Email</td><td>${formData.email}</td>
       </tr>
       <tr>
-        <td>Address</td><td>${data.street}</td>
+        <td>Address</td><td>${formData.street}</td>
       </tr>
       <tr>
-        <td>City</td><td>${data.city}</td>
+        <td>City</td><td>${formData.city}</td>
       </tr>
       <tr>
-        <td>State</td><td>${data.state}</td>
+        <td>State</td><td>${formData.state}</td>
       </tr>
       <tr>
-        <td>Donation items</td><td>${data.list}</td>
+        <td>Donation items</td><td>${formData.list}</td>
       </tr>
       <tr>
-        <td>Other items</td><td>${data.other}</td>
+        <td>Other items</td><td>${formData.other}</td>
       </tr>
       <tr>
-        <td>Volunteer</td><td>${data.volunteer}</td>
+        <td>Volunteer</td><td>${formData.volunteer}</td>
       </tr>
       </table>
     </body></html>
@@ -50,7 +50,7 @@ exports.handler = async function (event, context, callback) {
       options: { sandbox: false },
       content: {
         from: SENDER,
-        subject: `New ${data.type} form submitted`,
+        subject: `New ${formData.type} form submitted`,
         html: email
       },
       recipients: [{ address: RECEIVER }]
