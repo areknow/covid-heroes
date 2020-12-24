@@ -19,6 +19,7 @@ const Donate = () => {
   const request = context.formType === 'request';
 
   const [volunteer, toggleVolunteer] = useState(false);
+  const [attempted, setAttempted] = useState(false);
   const [itemList] = useState(site.content.sections.need.list);
   const [form, setForm] = useState({
     org: 'N/A',
@@ -48,27 +49,44 @@ const Donate = () => {
   };
 
   /**
+   * Run validation on required input fields
+   */
+  const validateFields = () => {
+    const requiredFields = document.querySelectorAll<HTMLInputElement>(
+      'input[required]'
+    );
+    for (const field of Array.from(requiredFields)) {
+      field.classList.toggle(styles.error, !field.value);
+    }
+    return !Array.from(requiredFields).some((field: HTMLInputElement) =>
+      field.classList.contains(styles.error)
+    );
+  };
+
+  /**
    * Prepare the form data to be sent to server
    * @param event
    */
-  const handleSubmit = (event: React.FormEvent<Element>) => {
-    let type = '';
-    if (donate && !request) {
-      type = 'donation';
-    } else if (!donate && request) {
-      type = 'request';
-    } else if (!donate && !request && volunteer) {
-      type = 'volunteer';
+  const handleSubmit = () => {
+    setAttempted(true);
+    if (validateFields()) {
+      let type = '';
+      if (donate && !request) {
+        type = 'donation';
+      } else if (!donate && request) {
+        type = 'request';
+      } else if (!donate && !request && volunteer) {
+        type = 'volunteer';
+      }
+      const list = prepareListData();
+      const data = {
+        type,
+        ...form,
+        list,
+        volunteer: volunteer ? 'Yes' : 'No'
+      };
+      postFormData(data);
     }
-    const list = prepareListData();
-    const data = {
-      type,
-      ...form,
-      list,
-      volunteer: volunteer ? 'Yes' : 'No'
-    };
-    postFormData(data);
-    event.preventDefault();
   };
 
   return (
@@ -153,6 +171,7 @@ const Donate = () => {
                         autoComplete="given-name"
                         onChange={event => {
                           setForm({ ...form, first: event.target.value });
+                          if (attempted) validateFields();
                         }}
                       />
                     </div>
@@ -164,6 +183,7 @@ const Donate = () => {
                         autoComplete="family-name"
                         onChange={event => {
                           setForm({ ...form, last: event.target.value });
+                          if (attempted) validateFields();
                         }}
                       />
                     </div>
@@ -176,6 +196,7 @@ const Donate = () => {
                         placeholder="Phone Number"
                         onChange={event => {
                           setForm({ ...form, phone: event.target.value });
+                          if (attempted) validateFields();
                         }}
                       />
                     </div>
@@ -189,6 +210,7 @@ const Donate = () => {
                         autoComplete="email"
                         onChange={event => {
                           setForm({ ...form, email: event.target.value });
+                          if (attempted) validateFields();
                         }}
                       />
                     </div>
@@ -272,7 +294,9 @@ const Donate = () => {
                 </div>
               )}
               {(donate || request || volunteer) && (
-                <Button>{{ label: 'SUBMIT', type: 'primary' }}</Button>
+                <Button change={handleSubmit}>
+                  {{ label: 'SUBMIT', type: 'primary' }}
+                </Button>
               )}
             </form>
           </Column>

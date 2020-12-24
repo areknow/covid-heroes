@@ -34,10 +34,6 @@
             &:last-child {
               margin-right: 0;
             }
-            &.error {
-              border-color: var(--error-red);
-              box-shadow: 0 0 2px var(--error-red);
-            }
             input,
             textarea {
               resize: none;
@@ -61,6 +57,10 @@
             }
             textarea {
               margin-top: 40px;
+            }
+            input.error {
+              border-color: var(--error-red);
+              box-shadow: 0 0 2px var(--error-red);
             }
           }
         }

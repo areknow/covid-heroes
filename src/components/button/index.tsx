@@ -17,7 +17,7 @@ const Button = (props: ButtonProps) => {
   ].join(' ');
 
   return (
-    <button className={classes} onClick={props.change}>
+    <button className={classes} onClick={props.change} type="button">
       {props.children.label}
     </button>
   );
