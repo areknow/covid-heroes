@@ -2,6 +2,7 @@ import styles from './index.module.scss';
 
 interface ButtonProps {
   negative?: boolean;
+  disabled?: boolean;
   children: {
     label: string;
     type: string;
@@ -17,7 +18,12 @@ const Button = (props: ButtonProps) => {
   ].join(' ');
 
   return (
-    <button className={classes} onClick={props.change} type="button">
+    <button
+      className={classes}
+      onClick={props.change}
+      type="button"
+      disabled={props.disabled}
+    >
       {props.children.label}
     </button>
   );

@@ -20,6 +20,9 @@ const Donate = () => {
 
   const [volunteer, toggleVolunteer] = useState(false);
   const [attempted, setAttempted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+  const [serviceError, setServiceError] = useState(false);
   const [itemList] = useState(site.content.sections.need.list);
   const [form, setForm] = useState({
     org: 'N/A',
@@ -64,12 +67,26 @@ const Donate = () => {
   };
 
   /**
+   * Return dynamic label for submit button
+   */
+  const submitButtonLabel = () => {
+    if (error) {
+      return 'CHECK FORM';
+    } else if (submitted) {
+      return 'THANK YOU';
+    } else {
+      return 'SUBMIT';
+    }
+  };
+
+  /**
    * Prepare the form data to be sent to server
    * @param event
    */
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setAttempted(true);
     if (validateFields()) {
+      setError(false);
       let type = '';
       if (donate && !request) {
         type = 'donation';
@@ -85,7 +102,15 @@ const Donate = () => {
         list,
         volunteer: volunteer ? 'Yes' : 'No'
       };
-      postFormData(data);
+      try {
+        await postFormData(data);
+        setSubmitted(true);
+        setServiceError(false);
+      } catch (error) {
+        setServiceError(true);
+      }
+    } else {
+      setError(true);
     }
   };
 
@@ -294,18 +319,23 @@ const Donate = () => {
                 </div>
               )}
               {(donate || request || volunteer) && (
-                <Button change={handleSubmit}>
-                  {{ label: 'SUBMIT', type: 'primary' }}
+                <Button change={handleSubmit} disabled={submitted}>
+                  {{
+                    label: submitButtonLabel(),
+                    type: 'primary'
+                  }}
                 </Button>
               )}
             </form>
           </Column>
         </div>
-        <Column>
+        {serviceError && (
           <div className={styles.formError}>
-            An error occurred. Please refresh the page and try again.
+            <Column>
+              An error occurred. Please refresh the page and try again.
+            </Column>
           </div>
-        </Column>
+        )}
       </div>
     </Section>
   );
