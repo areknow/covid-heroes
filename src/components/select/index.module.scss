@@ -1,3 +1,5 @@
+@import '../../styles/sizes';
+
 .selectContainer {
   position: relative;
 
@@ -28,5 +30,13 @@
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 5px solid var(--body-text-color);
+  }
+}
+
+@media (max-width: $size-small) {
+  .selectContainer {
+    select {
+      padding: 12px 16px;
+    }
   }
 }

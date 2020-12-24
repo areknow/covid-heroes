@@ -85,7 +85,7 @@ const Donate = () => {
                 <h3>
                   Are you donating medical equipment, or are you requesting it?
                 </h3>
-                <ul className={styles.list}>
+                <ul className={`${styles.list} ${styles.controls}`}>
                   <li>
                     <Radio
                       label="I have equipment to donate"
@@ -113,7 +113,7 @@ const Donate = () => {
                   Are you interested in volunteering? please check the box
                   below.
                 </h3>
-                <ul className={styles.list}>
+                <ul className={`${styles.list} ${styles.controls}`}>
                   <li>
                     <Checkbox
                       label="I am interested in being a volunteer. (if you don't have any PPEs or need any PPEs but still want to contribute in the logistics please check the box)"
