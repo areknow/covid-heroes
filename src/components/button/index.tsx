@@ -14,7 +14,7 @@ const Button = (props: ButtonProps) => {
   let classes = [
     styles.button,
     styles[props.children.type],
-    props.negative ? styles.negative : null
+    props.negative ? styles.negative : undefined
   ].join(' ');
 
   return (

@@ -19,7 +19,9 @@ const Select = (props: SelectProps) => {
 
   return (
     <div
-      className={`${styles.selectContainer} ${active ? styles.active : null}`}
+      className={`${styles.selectContainer} ${
+        active ? styles.active : undefined
+      }`}
     >
       <select
         className={styles.select}

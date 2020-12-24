@@ -80,6 +80,10 @@
         margin-top: 16px;
         margin-bottom: 50px;
       }
+      &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
     }
   }
   .formError {
