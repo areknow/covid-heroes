@@ -1,5 +1,5 @@
-import Column from '../../components/column';
-import site from '../../data/site.json';
+import Column from '../../../../components/column';
+import site from '../../../../data/site.json';
 import styles from './index.module.scss';
 
 const Footer = () => {

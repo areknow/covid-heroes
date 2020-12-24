@@ -1,11 +1,10 @@
 import { useContext } from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import Button from '../../components/button';
-import Column from '../../components/column';
-import Nav from '../../components/nav';
-import { Context } from '../../context';
-import site from '../../data/site.json';
-import '../../styles/index.scss';
+import Button from '../../../../components/button';
+import Column from '../../../../components/column';
+import Nav from '../../../../components/nav';
+import { Context } from '../../../../context';
+import site from '../../../../data/site.json';
 import styles from './index.module.scss';
 
 const SCROLL_OFFSET = 50;

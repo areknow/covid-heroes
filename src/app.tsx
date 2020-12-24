@@ -1,21 +1,19 @@
-import { Provider } from './context';
-import Cause from './sections/cause';
-import Contact from './sections/contact';
-import Donate from './sections/donate';
-import Footer from './sections/footer';
-import Hero from './sections/hero';
-import Need from './sections/need';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/home';
+import About from './pages/about';
 
 const App = () => {
   return (
-    <Provider>
-      <Hero />
-      <Cause />
-      <Need />
-      <Donate />
-      <Contact />
-      <Footer />
-    </Provider>
+    <Router>
+      <Switch>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 
