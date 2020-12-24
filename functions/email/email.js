@@ -2,7 +2,6 @@ const SparkPost = require('sparkpost');
 const SPARKPOST_CLIENT = new SparkPost(process.env.SPARKPOST);
 const RECEIVER = process.env.FORM_RECEIVER;
 const SENDER = 'COVIDHEROES.<form@mail.covidheroes.gives>';
-const SUBJECT = 'New donation form submitted';
 
 exports.handler = async function (event, context, callback) {
   const data = JSON.parse(event.body);
@@ -51,7 +50,7 @@ exports.handler = async function (event, context, callback) {
       options: { sandbox: false },
       content: {
         from: SENDER,
-        subject: SUBJECT,
+        subject: `New ${data.type} form submitted`,
         html: email
       },
       recipients: [{ address: RECEIVER }]
