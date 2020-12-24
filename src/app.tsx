@@ -1,10 +1,10 @@
-import Hero from './sections/hero';
-import Cause from './sections/cause';
-import Need from './sections/need';
-import Contact from './sections/contact';
-import Footer from './sections/footer';
-import Donate from './sections/donate';
 import { Provider } from './context';
+import Cause from './sections/cause';
+import Contact from './sections/contact';
+import Donate from './sections/donate';
+import Footer from './sections/footer';
+import Hero from './sections/hero';
+import Need from './sections/need';
 
 const App = () => {
   return (

@@ -1,12 +1,12 @@
-import '../../styles/index.scss';
-import styles from './index.module.scss';
-import site from '../../data/site.json';
-import Nav from '../../components/nav';
+import { useContext } from 'react';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Button from '../../components/button';
 import Column from '../../components/column';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { useContext } from 'react';
+import Nav from '../../components/nav';
 import { Context } from '../../context';
+import site from '../../data/site.json';
+import '../../styles/index.scss';
+import styles from './index.module.scss';
 
 const SCROLL_OFFSET = 50;
 

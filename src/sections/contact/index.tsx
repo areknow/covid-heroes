@@ -1,8 +1,8 @@
-import styles from './index.module.scss';
-import site from '../../data/site.json';
 import Column from '../../components/column';
-import Section from '../../components/section';
 import Header from '../../components/header';
+import Section from '../../components/section';
+import site from '../../data/site.json';
+import styles from './index.module.scss';
 
 const Contact = () => {
   return (

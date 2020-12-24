@@ -1,16 +1,16 @@
 import { useContext, useState } from 'react';
-import styles from './index.module.scss';
-import site from '../../data/site.json';
 import Button from '../../components/button';
-import Radio from '../../components/radio';
 import Checkbox from '../../components/checkbox';
-import Select from '../../components/select';
 import Column from '../../components/column';
-import { STATES } from './states';
-import { postFormData } from './service';
 import Header from '../../components/header';
+import Radio from '../../components/radio';
 import Section from '../../components/section';
+import Select from '../../components/select';
 import { Context } from '../../context';
+import site from '../../data/site.json';
+import styles from './index.module.scss';
+import { postFormData } from './service';
+import { STATES } from './states';
 
 const Donate = () => {
   const { context, updateContext } = useContext(Context);
