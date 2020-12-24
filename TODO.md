@@ -1,6 +1,0 @@
-- clean css
-- fix responsive
-- console logs
-- hide submit until ready
-- error validation in form
-- clean all imports
