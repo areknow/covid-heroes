@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styles from './index.module.scss';
 
 interface SelectOption {
@@ -14,14 +15,19 @@ interface SelectProps {
 }
 
 const Select = (props: SelectProps) => {
+  const [active, setActive] = useState(false);
+
   return (
-    <div className={styles.selectContainer}>
+    <div
+      className={`${styles.selectContainer} ${active ? styles.active : null}`}
+    >
       <select
         className={styles.select}
         defaultValue={'N/A'}
         autoComplete={props.autoComplete}
         name={props.name}
         onChange={event => {
+          setActive(true);
           props.change(event);
         }}
       >
