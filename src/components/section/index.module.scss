@@ -4,6 +4,12 @@
   margin-bottom: 200px;
 }
 
+@media (max-width: $size-medium) {
+  .section {
+    margin-bottom: 100px;
+  }
+}
+
 @media (max-width: $size-small) {
   .section {
     margin-bottom: 60px;

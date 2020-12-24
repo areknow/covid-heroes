@@ -30,7 +30,7 @@
   }
 }
 
-@media (max-width: $size-small) {
+@media (max-width: $size-medium) {
   .hero {
     background-position: top;
     .content {
@@ -61,6 +61,13 @@
         font-size: 23px;
         line-height: 1.13;
       }
+    }
+  }
+}
+
+@media (max-width: $size-small) {
+  .hero {
+    .content {
       .actions {
         text-align: center;
         display: block;
