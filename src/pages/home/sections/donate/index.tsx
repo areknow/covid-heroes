@@ -171,7 +171,7 @@ const Donate = () => {
                   </li>
                 </ul>
               </div>
-              {(donate || request) && (
+              {(donate || request || volunteer) && (
                 <div className={styles.block}>
                   <h3>
                     Please fill out some basic information so we can get in
