@@ -1,6 +1,7 @@
 @import '../../../../styles/sizes';
 
 .hero {
+  background-color: var(--theme-blue);
   background-image: url(../../../../assets/hero.jpg);
   background-size: cover;
   background-repeat: no-repeat;
