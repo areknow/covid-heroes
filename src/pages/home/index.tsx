@@ -1,4 +1,4 @@
-import { Provider } from '../../context';
+import { Provider } from 'context';
 import Cause from './sections/cause';
 import Contact from './sections/contact';
 import Donate from './sections/donate';

@@ -1,5 +1,5 @@
-import Column from '../../components/column';
-import Nav from '../../components/nav';
+import Column from 'components/column';
+import Nav from 'components/nav';
 import styles from './index.module.scss';
 
 const Terms = () => {

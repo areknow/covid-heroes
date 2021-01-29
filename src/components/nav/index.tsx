@@ -1,4 +1,4 @@
-import site from '../../data/site.json';
+import site from 'data/site.json';
 import styles from './index.module.scss';
 
 const Nav = () => {
