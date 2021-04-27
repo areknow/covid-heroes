@@ -1,16 +1,15 @@
-import Button from 'components/button';
+import { Button, VariantType } from '@miniml/alpha-components-react/button';
 import Column from 'components/column';
 import Nav from 'components/nav';
-import { Context } from 'context';
+import { useAppContext } from 'context';
 import site from 'data/site.json';
-import { useContext } from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import styles from './index.module.scss';
 
 const SCROLL_OFFSET = 50;
 
 const Hero = () => {
-  const { updateContext } = useContext(Context);
+  const { updateContext } = useAppContext();
 
   const buttonClick = (key: string) => {
     updateContext({ formType: key });
@@ -28,8 +27,13 @@ const Hero = () => {
               {site.content.hero.actions.map((action, index) => (
                 <div key={index} className={styles.button}>
                   <AnchorLink href="#donate" offset={SCROLL_OFFSET}>
-                    <Button negative change={() => buttonClick(action.key)}>
-                      {action}
+                    <Button
+                      monochrome
+                      size="large"
+                      variant={action.type as VariantType}
+                      onClick={() => buttonClick(action.key)}
+                    >
+                      {action.label}
                     </Button>
                   </AnchorLink>
                 </div>

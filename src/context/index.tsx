@@ -1,5 +1,5 @@
 import { DEFAULT_STATE } from 'configuration';
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 export interface ContextModel {
   formType: string;
@@ -31,3 +31,5 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
     </Context.Provider>
   );
 };
+
+export const useAppContext = () => useContext(Context);

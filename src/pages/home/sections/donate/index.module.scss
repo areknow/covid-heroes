@@ -34,33 +34,12 @@
             &:last-child {
               margin-right: 0;
             }
-            input,
-            textarea {
-              resize: none;
-              flex-grow: 1;
-              width: 100%;
-              font-size: 16px;
-              line-height: 1.5;
-              letter-spacing: 0.15px;
-              color: var(--donate-form-input-text-color);
-              padding: 16px;
-              border-radius: 4px;
-              border: 1px solid var(--donate-form-input-border-color);
-              background-color: var(--body-background-color);
-              -webkit-appearance: none;
-              -moz-appearance: none;
-              appearance: none;
-              position: relative;
-              &::placeholder {
-                color: var(--donate-form-input-placeholder-color);
-              }
-            }
             textarea {
               margin-top: 40px;
             }
             input.error {
+              box-shadow: 0px 0px 0px 1px var(--error-red);
               border-color: var(--error-red);
-              box-shadow: 0 0 2px var(--error-red);
             }
           }
         }

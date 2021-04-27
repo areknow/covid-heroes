@@ -1,19 +1,21 @@
-import Button from 'components/button';
-import Checkbox from 'components/checkbox';
+import { Button } from '@miniml/alpha-components-react/button';
+import { Checkbox } from '@miniml/alpha-components-react/checkbox';
+import { Input } from '@miniml/alpha-components-react/input';
+import { Radio } from '@miniml/alpha-components-react/radio';
+import { Select } from '@miniml/alpha-components-react/select';
+import { Textarea } from '@miniml/alpha-components-react/textarea';
 import Column from 'components/column';
 import Header from 'components/header';
-import Radio from 'components/radio';
 import Section from 'components/section';
-import Select from 'components/select';
-import { Context } from 'context';
+import { useAppContext } from 'context';
 import site from 'data/site.json';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import styles from './index.module.scss';
 import { postFormData } from './service';
 import { STATES } from './states';
 
 const Donate = () => {
-  const { context, updateContext } = useContext(Context);
+  const { context, updateContext } = useAppContext();
 
   const donate = context.formType === 'donate';
   const request = context.formType === 'request';
@@ -137,7 +139,7 @@ const Donate = () => {
                       label="I have equipment to donate"
                       group="type"
                       selected={donate}
-                      change={() => {
+                      onChange={() => {
                         updateContext({ formType: 'donate' });
                       }}
                     />
@@ -147,7 +149,7 @@ const Donate = () => {
                       label="I am requesting medical equipment"
                       group="type"
                       selected={request}
-                      change={() => {
+                      onChange={() => {
                         updateContext({ formType: 'request' });
                       }}
                     />
@@ -164,7 +166,7 @@ const Donate = () => {
                     <Checkbox
                       label="I am interested in being a volunteer. (if you don't have any PPEs or need any PPEs but still want to contribute in the logistics please check the box)"
                       value="volunteer"
-                      change={() => {
+                      onChange={() => {
                         toggleVolunteer(!volunteer);
                       }}
                     />
@@ -179,22 +181,20 @@ const Donate = () => {
                   </h3>
                   {request && (
                     <div className={styles.row}>
-                      <span className={styles.input}>
-                        <input
+                      <div className={styles.input}>
+                        <Input
                           placeholder="Organization Name"
-                          type="text"
                           onChange={event => {
                             setForm({ ...form, org: event.target.value });
                           }}
                         />
-                      </span>
+                      </div>
                     </div>
                   )}
                   <div className={styles.row}>
                     <div className={styles.input}>
-                      <input
+                      <Input
                         required
-                        type="text"
                         placeholder="First Name"
                         autoComplete="given-name"
                         onChange={event => {
@@ -204,9 +204,8 @@ const Donate = () => {
                       />
                     </div>
                     <div className={styles.input}>
-                      <input
+                      <Input
                         required
-                        type="text"
                         placeholder="Last Name"
                         autoComplete="family-name"
                         onChange={event => {
@@ -216,11 +215,11 @@ const Donate = () => {
                       />
                     </div>
                     <div className={styles.input}>
-                      <input
+                      <Input
                         required
                         type="tel"
-                        autoComplete="tel"
                         pattern="^[0-9]{3,45}$"
+                        autoComplete="tel"
                         placeholder="Phone Number"
                         onChange={event => {
                           setForm({ ...form, phone: event.target.value });
@@ -231,7 +230,7 @@ const Donate = () => {
                   </div>
                   <div className={styles.row}>
                     <div className={styles.input}>
-                      <input
+                      <Input
                         required
                         type="email"
                         placeholder="Email"
@@ -243,8 +242,7 @@ const Donate = () => {
                       />
                     </div>
                     <div className={styles.input}>
-                      <input
-                        type="text"
+                      <Input
                         placeholder="Street Address"
                         autoComplete="street-address"
                         onChange={event => {
@@ -255,8 +253,7 @@ const Donate = () => {
                   </div>
                   <div className={styles.row}>
                     <div className={styles.input}>
-                      <input
-                        type="text"
+                      <Input
                         placeholder="City"
                         autoComplete="address-level2"
                         onChange={event => {
@@ -270,14 +267,15 @@ const Donate = () => {
                         autoComplete="address-level1"
                         name="state"
                         label="State"
-                        change={event => {
+                        onChange={(
+                          event: React.ChangeEvent<HTMLSelectElement>
+                        ) => {
                           setForm({ ...form, state: event.target.value });
                         }}
                       />
                     </span>
                     <div className={styles.input}>
-                      <input
-                        type="text"
+                      <Input
                         placeholder="Zip Code"
                         autoComplete="postal-code"
                         onChange={event => {
@@ -301,7 +299,7 @@ const Donate = () => {
                         <Checkbox
                           label={item.label}
                           value={item.label}
-                          change={() => {
+                          onChange={() => {
                             item.checked = !item.checked;
                           }}
                         />
@@ -310,23 +308,25 @@ const Donate = () => {
                   </ul>
                   <div className={styles.row}>
                     <span className={styles.input}>
-                      <textarea
+                      <Textarea
                         rows={8}
                         placeholder="Please let us know if you have other items you would like to donate."
                         onChange={event => {
                           setForm({ ...form, other: event.target.value });
                         }}
-                      ></textarea>
+                      />
                     </span>
                   </div>
                 </div>
               )}
               {(donate || request || volunteer) && (
-                <Button change={handleSubmit} disabled={submitted}>
-                  {{
-                    label: submitButtonLabel(),
-                    type: 'primary'
-                  }}
+                <Button
+                  onClick={handleSubmit}
+                  disabled={submitted}
+                  variant="primary"
+                  size="large"
+                >
+                  {submitButtonLabel()}
                 </Button>
               )}
             </form>
