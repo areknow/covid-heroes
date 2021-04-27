@@ -6,4 +6,6 @@ This webapp is built to help serve the medical community that is in need of PPE 
 
 The site is built with React and hosted on Netlify and also leverages Netlify Functions and SparkPost for email routing.
 
+Painless development made possible by using my [Alpha Components](https://github.com/areknow/alpha-components) library.
+
 ![Homepage](https://imgur.com/b3np1aW.png)
